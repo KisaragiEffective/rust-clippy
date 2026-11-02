@@ -1,3 +1,5 @@
+# This workflow is managed by gh actions-lock.
+
 name: Clippy Test
 
 on:
@@ -40,7 +42,7 @@ jobs:
     steps:
     # Setup
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.4.0
 
     - name: Install toolchain
       run: rustup show active-toolchain

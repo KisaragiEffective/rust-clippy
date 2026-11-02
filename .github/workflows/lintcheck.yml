@@ -1,3 +1,5 @@
+# This workflow is managed by gh actions-lock.
+
 name: Lintcheck
 
 on: pull_request
@@ -21,7 +23,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.4.0
       with:
         fetch-depth: 2
 
@@ -43,7 +45,7 @@ jobs:
 
     - name: Cache results
       id: cache
-      uses: actions/cache@v4
+      uses: actions/cache@v4.3.0
       with:
         path: lintcheck-logs/base.json
         key: ${{ steps.key.outputs.key }}
@@ -65,7 +67,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.4.0
 
     - name: Create cache key
       id: key
@@ -73,7 +75,7 @@ jobs:
 
     - name: Cache results
       id: cache
-      uses: actions/cache@v4
+      uses: actions/cache@v4.3.0
       with:
         path: lintcheck-logs/head.json
         key: ${{ steps.key.outputs.key }}
@@ -95,17 +97,17 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.4.0
 
     - name: Restore base JSON
-      uses: actions/cache/restore@v4
+      uses: actions/cache/restore@v4.3.0
       with:
         key: ${{ needs.base.outputs.key }}
         path: lintcheck-logs/base.json
         fail-on-cache-miss: true
 
     - name: Restore head JSON
-      uses: actions/cache/restore@v4
+      uses: actions/cache/restore@v4.3.0
       with:
         key: ${{ needs.head.outputs.key }}
         path: lintcheck-logs/head.json

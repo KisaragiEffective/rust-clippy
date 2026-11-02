@@ -1,3 +1,5 @@
+# This workflow is managed by gh actions-lock.
+
 name: Remark
 
 on:
@@ -16,10 +18,10 @@ jobs:
     steps:
     # Setup
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.4.0
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v3.9.1
       with:
         node-version: '18.x'
 

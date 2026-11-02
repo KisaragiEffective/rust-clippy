@@ -1,3 +1,5 @@
+# This workflow is managed by gh actions-lock.
+
 name: Clippy Test (bors)
 
 on:
@@ -27,7 +29,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.4.0
       with:
         ref: ${{ github.ref }}
 
@@ -69,7 +71,7 @@ jobs:
     steps:
     # Setup
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.4.0
 
     - name: Install i686 dependencies
       if: matrix.host == 'i686-unknown-linux-gnu'
@@ -127,7 +129,7 @@ jobs:
     steps:
      # Setup
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.4.0
 
     - name: Install toolchain
       run: rustup show active-toolchain
@@ -147,7 +149,7 @@ jobs:
     steps:
     # Setup
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.4.0
 
     - name: Install toolchain
       run: rustup show active-toolchain
@@ -166,7 +168,7 @@ jobs:
         find $DIR ! -executable -o -type d ! -path $DIR | xargs rm -rf
 
     - name: Upload Binaries
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3.2.1
       with:
         name: binaries
         path: target/debug
@@ -199,14 +201,14 @@ jobs:
     steps:
     # Setup
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.4.0
 
     - name: Install toolchain
       run: rustup show active-toolchain
 
     # Download
     - name: Download target dir
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v3.0.2
       with:
         name: binaries
         path: target/debug
